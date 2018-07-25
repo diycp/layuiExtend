@@ -53,6 +53,7 @@ layui.define(["jquery"], function (exports) {
             this.currentStep=this.currentStep>=this.len?this.len:this.currentStep;
         },
         domRender: function() {
+            var self=this;
             var titleStr='<div class="layui-step-title layui-clear">'+
             '<div class="layui-step-title-item step-first" style="width: '+(100/this.len)+'%;">'+
                 '<div class="step-icon">'+
