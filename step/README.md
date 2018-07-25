@@ -2,7 +2,7 @@
 
 #### **html元素**
 -----------------
-```
+```javascript
 <div class="layui-step">
     <div class="layui-step-content layui-clear">
         <div class="layui-step-content-item">条目1</div>
@@ -23,7 +23,7 @@
 
 #### **js引用**
 -----------------
-```
+```javascript
 layui.use(['jquery','step'], function(){
     var $ = layui.jquery;
     var step = layui.step;
