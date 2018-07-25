@@ -19,6 +19,8 @@
     </div>
 </div>
 ```
+</br>
+</br>
 2. **js引用**
 ```javascript
 layui.use(['jquery','step'], function(){
@@ -45,6 +47,8 @@ layui.use(['jquery','step'], function(){
     })
 });
 ```
+</br>
+</br>
 3. **说明**
     3.1 每一个 .layui-step-content-item代表一个tab页面，高度默认最小值为满屏
     3.2 按扭区默认悬浮固定在右下角，可自行设置，内部的按钮个数可以自定义
