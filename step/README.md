@@ -1,7 +1,7 @@
 ## 基于layui的步骤条面板
 
 #### **html元素**
-***
+-----------------
 ```
 <div class="layui-step">
     <div class="layui-step-content layui-clear">
@@ -22,7 +22,7 @@
 ```
 
 #### **js引用**
-***
+-----------------
 ```
 layui.use(['jquery','step'], function(){
     var $ = layui.jquery;
@@ -50,12 +50,12 @@ layui.use(['jquery','step'], function(){
 ```
 
 #### **说明**
-***
+-----------------
 > + 每一个 .layui-step-content-item代表一个tab页面，高度默认最小值为满屏
 > + 按扭区默认悬浮固定在右下角，可自行设置，内部的按钮个数可以自定义
 
 #### **step.render()参数说明**
-***
+----------------------------------
 > + elem：外层容器
 > + title：步骤条下方文字说明，类型为数组，可省略，默认["第一步","第二步","第三步","。。。"]
 > + currentStep：初始时是第几步，可省略，默认第一步
@@ -64,7 +64,7 @@ layui.use(['jquery','step'], function(){
     
 
 #### **外部可以使用的函数说明**
-***
+----------------------------------
 > + render()：初始渲染界面
 > + goStep(i)：跳到第几步
 > + goFirst()：跳到第1步
@@ -74,5 +74,5 @@ layui.use(['jquery','step'], function(){
 </br>
 </br>
 #### **外部可使用的变量说明**
-***
+----------------------------------
 > + 6.1 currentStep：获取当前是第几步
