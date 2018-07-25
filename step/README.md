@@ -1,6 +1,6 @@
 ## 基于layui的步骤条面板
 
-####**html元素**
+#### **html元素**
 ***
 ```
 <div class="layui-step">
@@ -21,7 +21,7 @@
 </div>
 ```
 
-####**js引用**
+#### **js引用**
 ***
 ```
 layui.use(['jquery','step'], function(){
@@ -63,7 +63,7 @@ layui.use(['jquery','step'], function(){
 > + description：步骤条下方描述性文字，类型为数组，可省略
     
 
-####**外部可以使用的函数说明**
+#### **外部可以使用的函数说明**
 ***
 > + render()：初始渲染界面
 > + goStep(i)：跳到第几步
@@ -73,6 +73,6 @@ layui.use(['jquery','step'], function(){
 > + next()：跳到下一步
 </br>
 </br>
-####**外部可使用的变量说明**
+#### **外部可使用的变量说明**
 ***
 > + 6.1 currentStep：获取当前是第几步
