@@ -1,7 +1,8 @@
 ## 基于layui的步骤条面板
 
-1. **html元素**
-```javascript
+####**html元素**
+***
+```
 <div class="layui-step">
     <div class="layui-step-content layui-clear">
         <div class="layui-step-content-item">条目1</div>
@@ -19,10 +20,10 @@
     </div>
 </div>
 ```
-</br>
-</br>
-2. **js引用**
-```javascript
+
+####**js引用**
+***
+```
 layui.use(['jquery','step'], function(){
     var $ = layui.jquery;
     var step = layui.step;
@@ -47,29 +48,31 @@ layui.use(['jquery','step'], function(){
     })
 });
 ```
+
+#### **说明**
+***
+> + 每一个 .layui-step-content-item代表一个tab页面，高度默认最小值为满屏
+> + 按扭区默认悬浮固定在右下角，可自行设置，内部的按钮个数可以自定义
+
+#### **step.render()参数说明**
+***
+> + elem：外层容器
+> + title：步骤条下方文字说明，类型为数组，可省略，默认["第一步","第二步","第三步","。。。"]
+> + currentStep：初始时是第几步，可省略，默认第一步
+> + canIconClick：上方步骤条是否可以点击，可省略，默认false
+> + description：步骤条下方描述性文字，类型为数组，可省略
+    
+
+####**外部可以使用的函数说明**
+***
+> + render()：初始渲染界面
+> + goStep(i)：跳到第几步
+> + goFirst()：跳到第1步
+> + goLast()：跳到最后1步
+> + prev()：跳到上一步
+> + next()：跳到下一步
 </br>
 </br>
-3. **说明**
-    3.1 每一个 .layui-step-content-item代表一个tab页面，高度默认最小值为满屏
-    3.2 按扭区默认悬浮固定在右下角，可自行设置，内部的按钮个数可以自定义
-</br>
-</br>
-4. **step.render()参数说明**
-    4.1 elem：外层容器
-    4.2 title：步骤条下方文字说明，类型为数组，可省略，默认["第一步","第二步","第三步","。。。"]
-    4.3 currentStep：初始时是第几步，可省略，默认第一步
-    4.4 canIconClick：上方步骤条是否可以点击，可省略，默认false
-    4.5 description：步骤条下方描述性文字，类型为数组，可省略
-</br>
-</br>
-5. **外部可以使用的函数说明**
-    5.1 render()：初始渲染界面
-    5.2 goStep(i)：跳到第几步
-    5.3 goFirst()：跳到第1步
-    5.4 goLast()：跳到最后1步
-    5.5 prev()：跳到上一步
-    5.6 next()：跳到下一步
-</br>
-</br>
-6. **外部可使用的变量说明**
-    6.1 currentStep：获取当前是第几步
+####**外部可使用的变量说明**
+***
+> + 6.1 currentStep：获取当前是第几步
