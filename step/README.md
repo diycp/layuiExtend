@@ -71,4 +71,4 @@ layui.use(['jquery','step'], function(){
 
 
 #### **外部可使用的变量说明**
-> + 6.1 currentStep：获取当前是第几步
+> + currentStep：获取当前是第几步

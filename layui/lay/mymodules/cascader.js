@@ -3,7 +3,7 @@
  * 使用：
  * layui.cascader({
         // 必选参数：选择器
-        ele: "#a",
+        elem: "#a",
         // 必选参数：data或url参数二选一，data优先
         data: [
             {
@@ -74,10 +74,10 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
         // 初始化参数数据
         initOption: function () {
             var self=this;
-            self.option.ele?(function(){
-                self.ele=self.option.ele;
+            self.option.elem?(function(){
+                self.elem=self.option.elem;
             })():(function() {
-                throw "缺少ele节点选择器";
+                throw "缺少elem节点选择器";
             })();
 
             self.triggerType=self.option.triggerType==="change"?"mouseenter":"click";
@@ -100,17 +100,17 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
                             self.callback();
                             return;
                         }
-                        layer.alert(data.Msg, { title: "选择器"+self.ele+"获取数据失败", icon: 2 });
+                        layer.alert(data.Msg, { title: "选择器"+self.elem+"获取数据失败", icon: 2 });
                     }
                 });
                 return;
             }
-            throw "选择器"+self.ele+"缺少data或url参数";
+            throw "选择器"+self.elem+"缺少data或url参数";
         },
         // 初始化容器和标签
         init: function () {
-            $(this.ele).after('<i class="layui-icon layui-icon-down"></i>');
-            $(this.ele).after('<div class="urp-cascader-content"></div>');
+            $(this.elem).after('<i class="layui-icon layui-icon-down"></i>');
+            $(this.elem).after('<div class="urp-cascader-content"></div>');
         },
         // 初始化第一层
         initFirst: function () {
@@ -121,8 +121,8 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
                     '{{# } }}'+
                 '</ul>'
             ).render(this.d);
-            $(this.ele).siblings(".urp-cascader-content").append(string);
-            this.domContent=$(this.ele).siblings(".urp-cascader-content");
+            $(this.elem).siblings(".urp-cascader-content").append(string);
+            this.domContent=$(this.elem).siblings(".urp-cascader-content");
             this.domContent.find(".urp-cascader-child").hide();
 
             // 显示隐藏第一层的标签
@@ -206,14 +206,14 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
             this.textStr=this.textArr.join("/");
 
             (this.option.showLastLevels)?(
-                $(this.ele).val(this.textArr[this.textArr.length-1])
+                $(this.elem).val(this.textArr[this.textArr.length-1])
             ):(
-                $(this.ele).val(this.textStr)
+                $(this.elem).val(this.textStr)
             );
             
             this.onOff = false;
-            $(this.ele).siblings(".urp-cascader-content").find("ul").slideUp(100);
-            $(this.ele).siblings("i").replaceWith('<i class="layui-icon layui-icon-down"></i>');
+            $(this.elem).siblings(".urp-cascader-content").find("ul").slideUp(100);
+            $(this.elem).siblings("i").replaceWith('<i class="layui-icon layui-icon-down"></i>');
 
             // 如果有初始值，则第一次不回调
             this.count++;
@@ -227,7 +227,7 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
             var self=this;
             this.option.value?(function(){
                 var value=self.option.value;
-                $(self.ele).trigger("click");
+                $(self.elem).trigger("click");
 
                 var arrr=[];    // 保存当前在data中的位置
                 var data=self.d;     // 需要遍历的子数组
@@ -235,19 +235,19 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
                 
                 value.forEach(function(val,index){
                     // console.log(data);
-                    if(!data) throw "选择器"+self.ele+"初始化数据不匹配";
+                    if(!data) throw "选择器"+self.elem+"初始化数据不匹配";
                     for(var i=0;i<data.length;i++){
                         if(data[i].value==val){
                             arrr.push(i);
                             self.domContent.find(".urp-cascader-child").eq(index).find("li").eq(i).trigger(self.triggerType,"initValue");
-                            $(self.ele).siblings(".urp-cascader-content").find("ul").finish();      // 停止当前正在运行的动画
+                            $(self.elem).siblings(".urp-cascader-content").find("ul").finish();      // 停止当前正在运行的动画
                         }
                     }
                     // 先判断数据是否存在，即是否有相匹配的数据
                     data[arrr[index]]?(function(){
                         data=data[arrr[index]].children;
                     })():(function(){
-                        throw "选择器"+self.ele+"初始化数据不匹配";
+                        throw "选择器"+self.elem+"初始化数据不匹配";
                     })()
                 })
                 // for(var i=0;i<d.length;i++){
@@ -305,26 +305,26 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
             })
                 
             // input点击显示隐藏
-            $(self.ele).on("click", function (event) {
+            $(self.elem).on("click", function (event) {
                 self.onOff = !self.onOff;
                 event.stopPropagation();
                 zIndex++;
                 if (self.onOff) {
-                    $(self.ele).siblings(".urp-cascader-content").find("ul").slideDown(100);
-                    $(self.ele).siblings("i").replaceWith('<i class="layui-icon layui-icon-up"></i>');
+                    $(self.elem).siblings(".urp-cascader-content").find("ul").slideDown(100);
+                    $(self.elem).siblings("i").replaceWith('<i class="layui-icon layui-icon-up"></i>');
 
                     self.domContent.css("zIndex",zIndex);
                 } else {
-                    $(self.ele).siblings(".urp-cascader-content").find("ul").slideUp(100);
-                    $(self.ele).siblings("i").replaceWith('<i class="layui-icon layui-icon-down"></i>');
+                    $(self.elem).siblings(".urp-cascader-content").find("ul").slideUp(100);
+                    $(self.elem).siblings("i").replaceWith('<i class="layui-icon layui-icon-down"></i>');
                 }
             })
             // 点击外层文档隐藏
             $(document).on("click",function() {
                 self.onOff = false;
                 if(!self.onOff){
-                    $(self.ele).siblings(".urp-cascader-content").find("ul").slideUp(100);
-                    $(self.ele).siblings("i").replaceWith('<i class="layui-icon layui-icon-down"></i>');
+                    $(self.elem).siblings(".urp-cascader-content").find("ul").slideUp(100);
+                    $(self.elem).siblings("i").replaceWith('<i class="layui-icon layui-icon-down"></i>');
                 }
             })
             self.initValue();
